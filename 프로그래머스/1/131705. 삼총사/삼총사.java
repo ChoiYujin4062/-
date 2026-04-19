@@ -1,18 +1,29 @@
 class Solution {
+    static int answerCount = 0;
+    static int sum = 0;
+    
     public int solution(int[] number) {
         int answer = 0;
-        int N = number.length;
         
-        for(int i=0; i<N-2; i++) {
-            for(int j=i+1; j<N-1; j++) {
-                for(int k=j+1; k<N; k++) {
-                    if((number[i] + number[j] + number[k]) == 0) {
-                        answer++;
-                    }
-                }
-            }
-        }
+        DFS(number, 0, 0);
+        
+        answer = answerCount;
         
         return answer;
     }
+    
+    void DFS(int[] number, int start, int count){
+        if(count == 3) {
+            if(sum == 0) {
+                answerCount++;
+            }
+            return;
+        }
+        
+        for(int i=start; i<number.length; i++) {
+            sum += number[i];
+            DFS(number, i+1, count+1); 
+            sum -= number[i];
+        }
+    } 
 }
