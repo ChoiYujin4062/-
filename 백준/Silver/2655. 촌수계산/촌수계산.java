@@ -62,7 +62,7 @@ public class Main{
 			neighbors[b].add(a);
 		}
 		
-		writer.write(BFS(num1, num2));
+		writer.write(BFS(num1, num2 + ""));
 		writer.flush();
 	}
 }
