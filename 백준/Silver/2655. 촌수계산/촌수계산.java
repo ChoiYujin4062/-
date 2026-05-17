@@ -57,7 +57,7 @@ public class Main{
 			neighbors[i] = new ArrayList<Integer>();
 		}
 		for(int[] e:edge) {
-			int a = e[0], b = e[0];
+			int a = e[0], b = e[1];
 			neighbors[a].add(b);
 			neighbors[b].add(a);
 		}
